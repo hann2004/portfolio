@@ -4,14 +4,12 @@ import { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, Sparkles, ArrowDown } from 'lucide-react';
 import Image from 'next/image';
 
-// Updated roles for the badge
 const roles = ['Data Science Trainee', 'Backend Development Trainee', 'ML Trainee'];
 
 export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
-  // Role text animation
   useEffect(() => {
     const interval = setInterval(() => {
       setFade(false);
@@ -26,9 +24,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="pt-28 pb-16 px-6 relative overflow-hidden matrix-bg">
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Floating particles */}
         {Array.from({ length: 15 }).map((_, i) => (
           <div
             key={i}
@@ -46,7 +42,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8">
-            {/* Animated Role Badge */}
             <div className="inline-flex items-center space-x-2 bg-gray-900/80 backdrop-blur-sm border border-gray-800 px-5 py-3 rounded-full">
               <div className="flex items-center space-x-3">
                 <div className="relative">
@@ -61,7 +56,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Main Heading */}
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="text-gray-300 block">Hi, I'm</span>
@@ -73,13 +67,11 @@ export default function Hero() {
               </h2>
             </div>
 
-            {/* Bio */}
             <p className="text-lg text-gray-400 max-w-xl leading-relaxed">
               I'm a KAIM trainee focused on backend development, data analysis, and machine learning. 
               I learn by building real projects and solving problems step by step.
             </p>
 
-            {/* Tech Stats */}
             <div className="grid grid-cols-3 gap-4 py-6">
               <div className="text-center p-4 bg-gray-900/40 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-gray-700 transition-colors">
                 <div className="text-3xl font-bold gradient-text">7+</div>
@@ -95,7 +87,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="#projects" 
@@ -116,91 +107,27 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Professional Picture */}
-          <div className="relative">
-            {/* Main Picture Container */}
-            <div className="relative rounded-2xl overflow-hidden border border-gray-800 bg-gradient-to-br from-gray-900 to-gray-950">
-              {/* Background Tech Pattern */}
-              <div className="absolute inset-0">
-                {/* Grid pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="h-full w-full" style={{
-                    backgroundImage: `linear-gradient(to right, #4f46e5 1px, transparent 1px),
-                                     linear-gradient(to bottom, #4f46e5 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                  }}></div>
-                </div>
-                
-                {/* Code-like background elements */}
-                <div className="absolute inset-0 opacity-5">
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <div 
-                      key={i}
-                      className="absolute text-xs font-mono text-blue-400"
-                      style={{
-                        left: `${10 + i * 12}%`,
-                        top: `${10 + i * 8}%`,
-                        transform: `rotate(${i * 5}deg)`,
-                      }}
-                    >
-                      {i % 2 === 0 ? 'python' : 'fastapi'}
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Professional Picture Frame */}
-              <div className="relative h-[500px] w-full">
-                {/* This is where your professional picture will go */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-80 h-96 rounded-lg overflow-hidden border-2 border-gray-700/50 shadow-2xl">
-                    {/* Your professional picture container */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 flex items-end justify-center">
-                      {/* YOUR ACTUAL PORTRAIT */}
-                      <div className="relative w-64 h-80 mb-4">
-                        {/* Your portrait image */}
-                        <Image
-                          src="/Portrait.png"
-                          alt="Hanan Nasir - Professional Portrait"
-                          width={256}
-                          height={320}
-                          className="w-full h-full object-cover rounded-lg shadow-2xl"
-                          priority
-                        />
-                        
-                        {/* Glow effect around picture */}
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl rounded-lg -z-10"></div>
-                        
-                        {/* Optional: Add a subtle overlay for better contrast */}
-                        <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-gray-900/30 to-transparent pointer-events-none"></div>
-                      </div>
-                    </div>
-                    
-                    {/* Tech badges floating around picture */}
-                    <div className="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-sm">Py</span>
-                    </div>
-                    <div className="absolute -bottom-3 -left-3 w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-                      <span className="text-white font-bold text-sm">FA</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Animated rings around picture */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-[340px] h-[420px] rounded-lg border-2 border-blue-500/20 animate-pulse"></div>
-                  <div className="absolute w-[360px] h-[440px] rounded-lg border-2 border-purple-500/20 animate-pulse delay-1000"></div>
-                </div>
-              </div>
+          {/* Right Column - Clean Picture */}
+          <div className="relative flex flex-col items-center">
+            {/* Picture Container */}
+            <div className="relative w-full h-[600px] mb-8">
+              <Image
+                src="/Portrait.png"
+                alt="Hanan Nasir - Professional Portrait"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
 
-            {/* Social Links below picture */}
-            <div className="flex justify-center mt-8 space-x-6">
+            {/* Social Links - Separated below picture */}
+            <div className="flex justify-center space-x-6 mt-4">
               <a 
                 href="https://github.com/hann2004" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-3 bg-gray-800 text-gray-400 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-300"
+                className="group p-3 bg-gray-800/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-300"
                 title="GitHub Profile"
               >
                 <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -209,27 +136,22 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/hanan-nasir2014" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-3 bg-gray-800 text-gray-400 rounded-lg hover:text-blue-400 hover:bg-gray-700 transition-all duration-300"
+                className="group p-3 bg-gray-800/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-blue-400 hover:bg-gray-700 transition-all duration-300"
                 title="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
               <a 
                 href="mailto:hanan.nasir1209@gmail.com" 
-                className="group p-3 bg-gray-800 text-gray-400 rounded-lg hover:text-red-400 hover:bg-gray-700 transition-all duration-300"
+                className="group p-3 bg-gray-800/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-red-400 hover:bg-gray-700 transition-all duration-300"
                 title="Send Email"
               >
                 <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
             </div>
-
-            {/* Floating tech elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-r from-pink-500/10 to-red-500/10 rounded-full blur-2xl"></div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <div className="flex justify-center mt-16 pt-8 border-t border-gray-800/50">
           <a href="#projects" className="group animate-bounce">
             <div className="flex flex-col items-center">
@@ -246,11 +168,6 @@ export default function Hero() {
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
           50% { transform: translateY(-10px) rotate(5deg); }
-        }
-        
-        @keyframes pulse-ring {
-          0% { transform: scale(0.95); opacity: 0.5; }
-          100% { transform: scale(1.05); opacity: 0; }
         }
         
         .matrix-bg::before {
