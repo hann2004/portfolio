@@ -392,7 +392,7 @@ export default function MLChatBot() {
       {/* Floating ML Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 neon-glow"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-gradient-to-br from-[#9B8CFF] to-[#22D3EE] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 neon-glow"
         aria-label="Open ML Portfolio Assistant"
       >
         <Brain className="h-6 w-6 text-white" />
@@ -414,16 +414,16 @@ export default function MLChatBot() {
           <div className={`
             relative w-full ${isFullscreen ? 'h-full' : 'h-[85vh] md:h-[600px]'} 
             ${isFullscreen ? 'rounded-none' : 'rounded-t-2xl md:rounded-2xl'}
-            bg-gradient-to-b from-gray-900 to-gray-950 border border-gray-800 shadow-2xl 
+            bg-gradient-to-b from-[#080B12] to-[#0F1628] border border-gray-800 shadow-2xl 
             pointer-events-auto flex flex-col
             ${isFullscreen ? 'max-w-full' : 'max-w-full md:max-w-md'}
             neon-border
           `}>
             {/* Header - FIXED HEIGHT */}
-            <div className="flex-shrink-0 p-3 md:p-4 border-b border-gray-800 bg-gray-900/90">
+            <div className="flex-shrink-0 p-3 md:p-4 border-b border-gray-800 bg-[#0F1628]/90">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <div className="p-1.5 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg">
+                  <div className="p-1.5 bg-gradient-to-br from-[#9B8CFF] to-[#22D3EE] rounded-lg">
                     <Cpu className="h-4 w-4 text-white" />
                   </div>
                   <div>
@@ -459,8 +459,8 @@ export default function MLChatBot() {
                     className={`
                       max-w-[85%] rounded-2xl p-3
                       ${message.sender === 'user'
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                        : 'bg-gray-800/80 text-gray-100 border border-gray-700'
+                        ? 'bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white'
+                        : 'bg-[#0F1628]/80 text-gray-100 border border-gray-700'
                       }
                     `}
                   >
@@ -494,9 +494,9 @@ export default function MLChatBot() {
               {/* Typing Indicator */}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-800/80 border border-gray-700 rounded-2xl p-3 max-w-[85%]">
+                  <div className="bg-[#0F1628]/80 border border-gray-700 rounded-2xl p-3 max-w-[85%]">
                     <div className="flex items-center space-x-2">
-                      <Cpu className="h-3 w-3 text-purple-400 animate-pulse" />
+                      <Cpu className="h-3 w-3 text-[#9B8CFF] animate-pulse" />
                       <span className="text-xs opacity-75">Processing with ML...</span>
                     </div>
                   </div>
@@ -527,14 +527,14 @@ export default function MLChatBot() {
 
               {/* Sample Questions - CONDITIONAL RENDER */}
               {showQuestions && (
-                <div className="px-3 py-2 border-t border-gray-800 bg-gray-900/30">
+                <div className="px-3 py-2 border-t border-gray-800 bg-[#0F1628]/50">
                   <div className="text-xs text-gray-400 mb-2">Quick questions:</div>
                   <div className="flex overflow-x-auto space-x-2 pb-1 scrollbar-hide">
                     {mlSampleQuestions.map((q, idx) => (
                       <button
                         key={idx}
                         onClick={() => handleSampleQuestion(q === 'Download ML CV' ? 'Download your CV' : q)}
-                        className="flex-shrink-0 text-xs px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-full border border-gray-700 whitespace-nowrap"
+                        className="flex-shrink-0 text-xs px-3 py-1.5 bg-[#0F1628] hover:bg-gray-700 text-gray-300 rounded-full border border-gray-700 whitespace-nowrap"
                       >
                         {q}
                       </button>
@@ -545,7 +545,7 @@ export default function MLChatBot() {
             </div>
 
             {/* Input Area - FIXED HEIGHT */}
-            <div className="flex-shrink-0 p-3 border-t border-gray-800 bg-gray-900">
+            <div className="flex-shrink-0 p-3 border-t border-gray-800 bg-[#0F1628]">
               <div className="flex space-x-2">
                 <input
                   ref={inputRef}
@@ -554,12 +554,12 @@ export default function MLChatBot() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask about ML..."
-                  className="flex-grow px-3 py-2.5 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:border-purple-500 text-sm"
+                  className="flex-grow px-3 py-2.5 bg-[#0B0F17] border border-gray-700 rounded-xl focus:outline-none focus:border-[#9B8CFF] text-sm"
                 />
                 <button
                   onClick={handleSend}
                   disabled={!input.trim() || isTyping}
-                  className="px-3 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl disabled:opacity-50"
+                  className="px-3 py-2.5 bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white rounded-xl disabled:opacity-50"
                 >
                   <Send className="h-4 w-4" />
                 </button>
@@ -570,7 +570,7 @@ export default function MLChatBot() {
                 <button
                   onClick={handleDownloadCV}
                   disabled={isDownloadingCV}
-                  className="text-xs px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg flex items-center"
+                  className="text-xs px-3 py-1.5 bg-[#0B0F17] hover:bg-gray-700 text-gray-300 rounded-lg flex items-center"
                 >
                   <FileDownIcon className="h-3 w-3 mr-1" />
                   {isDownloadingCV ? 'Downloading...' : 'Download ML CV'}

@@ -28,7 +28,7 @@ export default function Hero() {
         {Array.from({ length: 15 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-blue-500/30 rounded-full"
+            className="absolute w-1 h-1 bg-[#9B8CFF]/25 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -42,11 +42,11 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8">
-            <div className="inline-flex items-center space-x-2 bg-gray-900/80 backdrop-blur-sm border border-gray-800 px-5 py-3 rounded-full">
+            <div className="inline-flex items-center space-x-2 bg-[#0F1628]/80 backdrop-blur-sm border border-gray-800 px-5 py-3 rounded-full">
               <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <Sparkles className="h-5 w-5 text-blue-400 animate-pulse" />
-                  <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm"></div>
+                  <Sparkles className="h-5 w-5 text-[#9B8CFF] animate-pulse" />
+                  <div className="absolute -inset-1 bg-[#22D3EE]/18 rounded-full blur-sm"></div>
                 </div>
                 <span className="text-sm font-medium">
                   <span className={`text-gray-300 transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
@@ -58,12 +58,12 @@ export default function Hero() {
 
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="text-gray-300 block">Hi, I'm</span>
+                
                 <span className="gradient-text block mt-2">Hanan Nasir</span>
               </h1>
               
               <h2 className="text-2xl md:text-3xl text-gray-400 font-light">
-                Transforming data into intelligent solutions
+                Where data becomes decisions, powered by models and code.
               </h2>
             </div>
 
@@ -90,7 +90,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a 
                 href="#projects" 
-                className="group px-8 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:scale-105 transition-all duration-300 flex items-center neon-glow"
+                className="group px-8 py-3.5 bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white rounded-lg font-semibold hover:scale-105 transition-all duration-300 flex items-center neon-glow"
               >
                 <span>Explore My Work</span>
                 <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
@@ -127,7 +127,7 @@ export default function Hero() {
                 href="https://github.com/hann2004" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-3 bg-gray-800/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-300"
+                className="group p-3 bg-[#0F1628]/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-[#22D3EE] hover:bg-gray-700 transition-all duration-300"
                 title="GitHub Profile"
               >
                 <Github className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -136,14 +136,14 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/hanan-nasir2014" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-3 bg-gray-800/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-blue-400 hover:bg-gray-700 transition-all duration-300"
+                className="group p-3 bg-[#0F1628]/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-[#9B8CFF] hover:bg-gray-700 transition-all duration-300"
                 title="LinkedIn Profile"
               >
                 <Linkedin className="h-5 w-5 group-hover:scale-110 transition-transform" />
               </a>
               <a 
                 href="mailto:hanan.nasir1209@gmail.com" 
-                className="group p-3 bg-gray-800/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-red-400 hover:bg-gray-700 transition-all duration-300"
+                className="group p-3 bg-[#0F1628]/80 backdrop-blur-sm text-gray-400 rounded-lg hover:text-[#22D3EE] hover:bg-gray-700 transition-all duration-300"
                 title="Send Email"
               >
                 <Mail className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -158,7 +158,7 @@ export default function Hero() {
               <span className="text-gray-500 text-sm mb-2 group-hover:text-gray-400 transition-colors">
                 View Projects
               </span>
-              <ArrowDown className="h-6 w-6 text-gray-600 group-hover:text-blue-400 transition-colors" />
+              <ArrowDown className="h-6 w-6 text-gray-600 group-hover:text-[#9B8CFF] transition-colors" />
             </div>
           </a>
         </div>
@@ -177,8 +177,8 @@ export default function Hero() {
           left: 0;
           right: 0;
           bottom: 0;
-          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-          opacity: 0.3;
+          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239b8cff' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          opacity: 0.32;
           z-index: -1;
         }
       `}</style>

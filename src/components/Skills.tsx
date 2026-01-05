@@ -132,12 +132,12 @@ const orbitSkills = [
 ];
 
 const categories = [
-  { id: 'all', name: 'All Skills', icon: Sparkles, color: 'text-blue-400' },
-  { id: 'backend', name: 'Backend', icon: Server, color: 'text-green-400' },
-  { id: 'frontend', name: 'Frontend', icon: Code2, color: 'text-blue-400' },
-  { id: 'datascience', name: 'Data Science', icon: BarChart3, color: 'text-red-400' },
-  { id: 'ml', name: 'Machine Learning', icon: Brain, color: 'text-purple-400' },
-  { id: 'tools', name: 'Tools', icon: Terminal, color: 'text-cyan-400' },
+  { id: 'all', name: 'All Skills', icon: Sparkles, color: 'text-[#9B8CFF]' },
+  { id: 'backend', name: 'Backend', icon: Server, color: 'text-[#9B8CFF]' },
+  { id: 'frontend', name: 'Frontend', icon: Code2, color: 'text-[#22D3EE]' },
+  { id: 'datascience', name: 'Data Science', icon: BarChart3, color: 'text-[#22D3EE]' },
+  { id: 'ml', name: 'Machine Learning', icon: Brain, color: 'text-[#9B8CFF]' },
+  { id: 'tools', name: 'Tools', icon: Terminal, color: 'text-[#94A3B8]' },
 ];
 
 export default function Skills() {
@@ -189,7 +189,7 @@ export default function Skills() {
         {Array.from({ length: 20 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-blue-500/20 rounded-full"
+            className="absolute w-1 h-1 bg-[#9B8CFF]/18 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -197,13 +197,14 @@ export default function Skills() {
             }}
           />
         ))}
+                  <Cpu className="h-5 w-5 text-[#9B8CFF]" />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gray-900 border border-gray-800 px-6 py-3 rounded-full mb-6">
-            <Cpu className="h-5 w-5 text-cyan-400" />
+            <Cpu className="h-5 w-5 text-[#9B8CFF]" />
             <span className="text-gray-300 font-medium">Technical Stack</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Technologies</h2>
@@ -226,7 +227,7 @@ export default function Skills() {
                 }}
                 className={`flex items-center space-x-2 px-5 py-2.5 rounded-lg transition-all ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                    ? 'bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white'
                     : 'bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800 border border-gray-800'
                 }`}
               >
@@ -241,7 +242,7 @@ export default function Skills() {
         <div className="relative h-[500px] mb-16">
           {/* Central Sphere */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <div className="w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center animate-pulse">
+            <div className="w-40 h-40 rounded-full bg-gradient-to-br from-[#9B8CFF] to-[#22D3EE] flex items-center justify-center animate-pulse">
               <div className="text-center">
                 <Brain className="h-12 w-12 text-white mx-auto mb-2" />
                 <div className="text-white font-bold text-sm">
@@ -273,7 +274,7 @@ export default function Skills() {
               >
                 {/* Orbit Ring */}
                 <div 
-                  className="absolute inset-0 border border-gray-800/30 rounded-full"
+                  className="absolute inset-0 border border-gray-800/50 rounded-full"
                   style={{
                     animation: isAnimating ? `spin ${25 + orbitIndex * 8}s linear infinite ${orbitIndex * 3}s` : 'none',
                   }}
@@ -319,10 +320,10 @@ export default function Skills() {
                       
                       {/* Tooltip on hover */}
                       <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20">
-                        <div className="bg-gray-900 border border-gray-800 rounded-lg p-3 min-w-[120px] text-center shadow-xl">
+                        <div className="bg-[#0B0F17] border border-gray-800 rounded-lg p-3 min-w-[120px] text-center shadow-xl">
                           <div className="font-bold text-white">{skill.name}</div>
                           <div className="text-sm text-gray-400">{skill.description}</div>
-                          <div className="text-blue-400 font-bold mt-1">{skill.level}%</div>
+                          <div className="text-[#9B8CFF] font-bold mt-1">{skill.level}%</div>
                         </div>
                       </div>
                     </div>
@@ -344,10 +345,10 @@ export default function Skills() {
               if (categorySkills.length === 0) return null;
               
               return (
-                <div key={category.id} className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-all duration-300">
+                <div key={category.id} className="bg-[#0F1628]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-gray-700 transition-all duration-300">
                   {/* Category Header */}
                   <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-800">
-                    <div className={`p-2 rounded-lg ${category.color.replace('text-', 'bg-')}/20`}>
+                    <div className={`p-2 rounded-lg ${category.color.replace('text', 'bg')}/18`}>
                       <Icon className={`h-6 w-6 ${category.color}`} />
                     </div>
                     <div>
@@ -395,8 +396,8 @@ export default function Skills() {
                         {/* Progress Bar */}
                         <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
                           <div
-                            className={`h-full ${skill.color.replace('text-', 'bg-')} rounded-full transition-all duration-1000 ease-out`}
-                            style={{ width: `${skill.level}%` }}
+                            className="h-full bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] rounded-full transition-all duration-700 ease-out"
+                            style={{ width: `${Math.max(skill.level, 4)}%` }}
                           />
                         </div>
                       </div>

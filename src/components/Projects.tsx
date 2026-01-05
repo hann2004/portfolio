@@ -176,7 +176,7 @@ export default function Projects() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gray-900 border border-gray-800 px-6 py-3 rounded-full mb-6">
-            <Brain className="h-5 w-5 text-purple-400" />
+            <Brain className="h-5 w-5 text-[#9B8CFF]" />
             <span className="text-gray-300 font-medium">Project Portfolio</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h2>
@@ -195,7 +195,7 @@ export default function Projects() {
                 onClick={() => setSelectedSection(section.id)}
                 className={`flex flex-col items-center px-6 py-4 rounded-xl transition-all duration-300 min-w-[180px] ${
                   selectedSection === section.id
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-0'
+                    ? 'bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white border-0'
                     : 'bg-gray-900 text-gray-400 hover:text-white hover:bg-gray-800 border border-gray-800'
                 }`}
               >
@@ -211,10 +211,10 @@ export default function Projects() {
         <div className="mb-12">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div className="p-3 rounded-lg bg-gradient-to-br from-blue-900/30 to-purple-900/30">
+              <div className="p-3 rounded-lg bg-gradient-to-br from-[#9B8CFF]/22 to-[#22D3EE]/18">
                 {(() => {
                   const Icon = currentSection.icon;
-                  return <Icon className="h-6 w-6 text-blue-400" />;
+                  return <Icon className="h-6 w-6 text-[#9B8CFF]" />;
                 })()}
               </div>
               <div>
@@ -256,17 +256,17 @@ export default function Projects() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-4">
                     <div className={`p-3 rounded-lg ${
-                      project.category === 'ml' ? 'bg-purple-900/30' :
-                      project.category === 'datascience' ? 'bg-blue-900/30' :
-                      project.category === 'backend' ? 'bg-green-900/30' : 'bg-cyan-900/30'
+                      project.category === 'ml' ? 'bg-[#0F1628]/80' :
+                      project.category === 'datascience' ? 'bg-[#0F1628]/80' :
+                      project.category === 'backend' ? 'bg-[#0F1628]/80' : 'bg-[#0F1628]/80'
                     }`}>
-                      {project.category === 'ml' ? <Brain className="h-6 w-6 text-purple-400" /> :
-                       project.category === 'datascience' ? <FileText className="h-6 w-6 text-blue-400" /> :
-                       project.category === 'backend' ? <Database className="h-6 w-6 text-green-400" /> :
-                       <Code className="h-6 w-6 text-cyan-400" />}
+                      {project.category === 'ml' ? <Brain className="h-6 w-6 text-[#9B8CFF]" /> :
+                       project.category === 'datascience' ? <FileText className="h-6 w-6 text-[#22D3EE]" /> :
+                       project.category === 'backend' ? <Database className="h-6 w-6 text-[#9B8CFF]" /> :
+                       <Code className="h-6 w-6 text-[#22D3EE]" />}
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-xl font-bold mb-1 group-hover:text-[#9B8CFF] transition-colors">
                         {project.title}
                       </h3>
                       <div className="text-sm text-gray-500 uppercase tracking-wider">
@@ -303,7 +303,7 @@ export default function Projects() {
                   <ul className="space-y-3 mb-6">
                     {project.features.slice(0, 3).map((feature: string, idx: number) => (
                       <li key={idx} className="text-sm text-gray-400 flex items-start">
-                        <span className="text-blue-500 mr-3 mt-1 flex-shrink-0">•</span>
+                        <span className="text-[#22D3EE] mr-3 mt-1 flex-shrink-0">•</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -348,14 +348,14 @@ export default function Projects() {
                   <div>
                     <div className="flex items-center space-x-3 mb-4">
                       <div className={`p-3 rounded-lg ${
-                        selectedProject.category === 'ml' ? 'bg-purple-900/30' :
-                        selectedProject.category === 'datascience' ? 'bg-blue-900/30' :
-                        selectedProject.category === 'backend' ? 'bg-green-900/30' : 'bg-cyan-900/30'
-                      }`}>
-                        {selectedProject.category === 'ml' ? <Brain className="h-6 w-6 text-purple-400" /> :
-                         selectedProject.category === 'datascience' ? <FileText className="h-6 w-6 text-blue-400" /> :
-                         selectedProject.category === 'backend' ? <Database className="h-6 w-6 text-green-400" /> :
-                         <Code className="h-6 w-6 text-cyan-400" />}
+                          selectedProject.category === 'ml' ? 'bg-[#0F1628]/80' :
+                          selectedProject.category === 'datascience' ? 'bg-[#0F1628]/80' :
+                          selectedProject.category === 'backend' ? 'bg-[#0F1628]/80' : 'bg-[#0F1628]/80'
+                        }`}>
+                          {selectedProject.category === 'ml' ? <Brain className="h-6 w-6 text-[#9B8CFF]" /> :
+                           selectedProject.category === 'datascience' ? <FileText className="h-6 w-6 text-[#22D3EE]" /> :
+                           selectedProject.category === 'backend' ? <Database className="h-6 w-6 text-[#9B8CFF]" /> :
+                           <Code className="h-6 w-6 text-[#22D3EE]" />}
                       </div>
                       <div>
                         <span className="text-gray-400 uppercase text-sm block">
@@ -416,7 +416,7 @@ export default function Projects() {
                     {selectedProject.features.map((feature: string, idx: number) => (
                       <div key={idx} className="bg-gray-800/50 rounded-lg p-4">
                         <div className="flex items-start">
-                          <span className="text-blue-500 mr-3 mt-1">✓</span>
+                          <span className="text-[#22D3EE] mr-3 mt-1">✓</span>
                           <span className="text-gray-300">{feature}</span>
                         </div>
                       </div>
@@ -445,7 +445,7 @@ export default function Projects() {
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center px-6 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:scale-105 transition-transform font-medium"
+                    className="flex-1 inline-flex items-center justify-center px-6 py-3.5 bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white rounded-lg hover:scale-105 transition-transform font-medium"
                   >
                     <Github className="h-5 w-5 mr-3" />
                     View Source Code on GitHub

@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-[#0a0a0f]">
+      <body className="bg-[#080B12] text-[#E4ECF3]">
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-grow">{children}</main>

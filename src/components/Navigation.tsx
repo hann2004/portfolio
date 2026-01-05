@@ -15,12 +15,12 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-gray-900/90 backdrop-blur-xl z-50 border-b border-gray-800 neon-border">
+    <nav className="fixed top-0 w-full bg-[#0F1628]/90 backdrop-blur-xl z-50 border-b border-gray-800 neon-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg neon-glow">
+            <div className="p-2 bg-gradient-to-br from-[#9B8CFF] to-[#22D3EE] rounded-lg neon-glow">
               <Code2 className="h-6 w-6 text-white" />
             </div>
             <div>
@@ -44,13 +44,13 @@ export default function Navigation() {
             {/* Tech Icons */}
             <div className="flex items-center space-x-3 ml-6">
               <div className="p-2 bg-gray-800 rounded-full">
-                <Brain className="h-4 w-4 text-purple-400" />
+                <Brain className="h-4 w-4 text-[#9B8CFF]" />
               </div>
               <div className="p-2 bg-gray-800 rounded-full">
-                <Database className="h-4 w-4 text-blue-400" />
+                <Database className="h-4 w-4 text-[#22D3EE]" />
               </div>
               <div className="p-2 bg-gray-800 rounded-full">
-                <Code2 className="h-4 w-4 text-green-400" />
+                <Code2 className="h-4 w-4 text-[#9B8CFF]" />
               </div>
             </div>
           </div>

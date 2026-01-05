@@ -64,8 +64,8 @@ export default function Contact() {
       <div className="container mx-auto max-w-4xl relative z-10">
         {/* Minimal Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-2 bg-gray-900/30 backdrop-blur-sm border border-gray-800 px-4 py-2 rounded-full mb-4">
-            <Sparkles className="h-4 w-4 text-blue-400" />
+          <div className="inline-flex items-center space-x-2 bg-[#0F1628]/80 backdrop-blur-sm border border-gray-800 px-4 py-2 rounded-full mb-4">
+            <Sparkles className="h-4 w-4 text-[#9B8CFF]" />
             <span className="text-sm text-gray-300">Connect</span>
           </div>
           <h2 className="text-3xl font-bold mb-3">Get In Touch</h2>
@@ -119,11 +119,11 @@ export default function Contact() {
 
         {/* Rest of your code remains the same... */}
         {/* Availability Status */}
-        <div className="flex flex-col md:flex-row items-center justify-between bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-4 mb-8">
+        <div className="flex flex-col md:flex-row items-center justify-between bg-[#0F1628]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-4 mb-8">
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-sm text-green-400 font-medium">Available for Work</span>
+              <div className="w-2 h-2 rounded-full bg-[#22D3EE] animate-pulse"></div>
+              <span className="text-sm text-[#22D3EE] font-medium">Available for Work</span>
             </div>
             <div className="text-xs text-gray-500">
               • 
@@ -135,13 +135,13 @@ export default function Contact() {
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-400">Looking for:</span>
             <div className="flex flex-wrap gap-2">
-              <span className="px-2 py-1 bg-blue-900/30 text-blue-400 text-xs rounded-full">
+              <span className="px-2 py-1 bg-[#0B0F17] border border-gray-800 text-[#9B8CFF] text-xs rounded-full">
                 Data Science
               </span>
-              <span className="px-2 py-1 bg-purple-900/30 text-purple-400 text-xs rounded-full">
+              <span className="px-2 py-1 bg-[#0B0F17] border border-gray-800 text-[#94A3B8] text-xs rounded-full">
                 Backend Dev
               </span>
-              <span className="px-2 py-1 bg-green-900/30 text-green-400 text-xs rounded-full">
+              <span className="px-2 py-1 bg-[#0B0F17] border border-gray-800 text-[#22D3EE] text-xs rounded-full">
                 ML Projects
               </span>
             </div>
@@ -152,7 +152,7 @@ export default function Contact() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
           <a
             href="mailto:hanan.nasir1209@gmail.com"
-            className="group flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-sm font-medium hover:scale-105 transition-transform"
+            className="group flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] text-white rounded-lg text-sm font-medium hover:scale-105 transition-transform"
           >
             <Mail className="h-4 w-4 mr-2" />
             Send Quick Email
@@ -161,7 +161,7 @@ export default function Contact() {
           
           <a
             href="#projects"
-            className="flex items-center justify-center px-5 py-2.5 bg-gray-800 text-gray-300 border border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors"
+            className="flex items-center justify-center px-5 py-2.5 bg-[#0F1628] text-gray-300 border border-gray-700 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors"
           >
             Browse Projects First
           </a>
