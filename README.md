@@ -1,4 +1,4 @@
-## Hanan Nasir — Portfolio (Next.js + FastAPI Chatbot)
+## Portfolio (Next.js + FastAPI Chatbot)
 
 A modern portfolio built with Next.js, Tailwind CSS, and a lightweight ML chatbot. 
 
