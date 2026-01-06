@@ -1,6 +1,7 @@
 'use client';
 
 import Hero from '@/components/Hero';
+import Journey from '@/components/Journey';
 import Projects from '@/components/Projects';
 import Certifications from '@/components/Certifications';
 import Skills from '@/components/Skills';
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <div className="bg-[#0a0a0f]">
       <Hero />
+      <Journey />
       <Projects />
       <Certifications />
       <Skills />

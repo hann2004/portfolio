@@ -3,14 +3,14 @@ import { Palette, Server, Brain, TrendingUp } from 'lucide-react';
 const journey = [
   {
     period: '2024',
-    title: 'Machine Learning Engineer',
-    description: 'KAIM training with 5-6 data analysis & ML projects. Building intelligent systems.',
-    icon: Brain,
+    title: 'Web Design Foundations',
+    description: 'Completed virtual assistant & responsive web design certifications.',
+    icon: Palette,
     color: 'from-[#9B8CFF] to-[#22D3EE]',
-    projects: ['FastAPI Library', 'ML Models', 'Data Analysis'],
+    projects: ['Portfolio Website', 'Responsive Designs', 'UI/UX Principles'],
   },
   {
-    period: '2023-2024',
+    period: '2024/2025',
     title: 'Backend Developer',
     description: 'Built REST APIs with FastAPI, PostgreSQL. Focused on system architecture.',
     icon: Server,
@@ -18,12 +18,12 @@ const journey = [
     projects: ['FastAPI Projects', 'Database Design', 'API Development'],
   },
   {
-    period: '2024',
-    title: 'Web Design Foundations',
-    description: 'Completed virtual assistant & responsive web design certifications.',
-    icon: Palette,
+    period: '2025',
+    title: 'Machine Learning Engineer',
+    description: 'KAIM training with 5-6 data analysis & ML projects. Building intelligent systems.',
+    icon: Brain,
     color: 'from-[#9B8CFF] to-[#22D3EE]',
-    projects: ['Portfolio Website', 'Responsive Designs', 'UI/UX Principles'],
+    projects: ['FastAPI Library', 'ML Models', 'Data Analysis'],
   },
   {
     period: 'Future',
