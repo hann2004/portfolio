@@ -151,17 +151,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
-        <div className="flex justify-center mt-16 pt-8 border-t border-gray-800/50">
-          <a href="#projects" className="group animate-bounce">
-            <div className="flex flex-col items-center">
-              <span className="text-gray-500 text-sm mb-2 group-hover:text-gray-400 transition-colors">
-                View Projects
-              </span>
-              <ArrowDown className="h-6 w-6 text-gray-600 group-hover:text-[#9B8CFF] transition-colors" />
-            </div>
-          </a>
-        </div>
       </div>
 
       <style jsx>{`
