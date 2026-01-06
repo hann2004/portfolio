@@ -1,79 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Hanan Nasir — Portfolio (Next.js + FastAPI Chatbot)
 
-## Getting Started
+A modern portfolio built with Next.js, Tailwind CSS, and a lightweight ML chatbot. The chatbot can run fully local or proxy to a FastAPI intent classifier.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Portfolio sections: Hero, Journey, Projects, Certifications, Skills, Contact
+- Interactive ML chatbot with local fallback and API proxy
+- API route proxy: `src/app/api/predict/route.ts`
+- Responsive UI with Tailwind and animated micro‑interactions
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Frontend: Next.js (App Router), TypeScript, Tailwind CSS
+- Icons/UX: lucide-react
+- ML Backend: FastAPI (Python), scikit-learn (see `ml_model/`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## ML Chatbot: Training & Inference
+- `src/app/page.tsx` — Page layout that assembles sections
+- `src/components/` — UI components (`Hero`, `Journey`, `Projects`, `Certifications`, `Skills`, `Contact`, `MLChatBot`)
+- `src/app/api/predict/route.ts` — Next.js API route proxying to FastAPI
+- `ml_model/` — Training script, server, and assets for intent classification
 
-- Train the intent classifier:
-
-```bash
-python ml_model/train_intent_classifier.py
-```
-
-- Start the FastAPI inference server (serves `/predict`):
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r ml_model/requirements.txt
-python ml_model/server.py
-```
-
-- Optional: set the client to use a custom URL (defaults to `http://localhost:8000`):
-
-Create `.env.local`:
-
-```
-NEXT_PUBLIC_ML_API_URL=http://localhost:8000
-```
-
-- Run Next.js dev server:
+## Quick Start (Frontend)
 
 ```bash
 npm install
 npm run dev
 ```
 
-The ML chatbot component in `src/components/MLChatBot.tsx` will call the FastAPI server for intent classification and gracefully fall back to local heuristics if the API is unavailable.
+Open http://localhost:3000 to view the site.
 
-## Free Deployment (Frontend + Backend)
+## ML Chatbot: Train & Run Backend (Optional)
+
+The site works without the backend (local heuristic fallback). To use the FastAPI model:
+
+1) Create a virtualenv and install deps
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r ml_model/requirements.txt
+```
+
+2) (Optional) Train the intent classifier
+
+```bash
+python ml_model/train_intent_classifier.py
+```
+
+3) Start FastAPI server (serves `/predict`)
+
+```bash
+python ml_model/server.py
+```
+
+## Environment Variables
+
+- `ML_API_URL` — Base URL of the FastAPI service (e.g. `https://your-service.onrender.com`).
+  - For local development, you can skip this; the proxy defaults to `http://localhost:8000`.
+  - To set it, create `.env.local` in the project root:
+
+```
+ML_API_URL=https://your-service.onrender.com
+```
+
+Notes:
+- No client‑side env var is required; the chatbot calls the Next.js API route at `/api/predict`.
+- When `ML_API_URL` is unset or points to localhost, the proxy will use local heuristics.
+
+## Deployment
 
 ### Backend (FastAPI) on Render
-- Push this repository to GitHub (see commands below).
-- Create a new Render Web Service, select your GitHub repo.
-- Use the root of the repo; set:
-	- Build Command: `pip install -r ml_model/requirements.txt`
-	- Start Command: `uvicorn ml_model.server:app --host 0.0.0.0 --port $PORT`
-- Once deployed, copy the service URL (e.g., `https://your-service.onrender.com`).
+
+- New Web Service from your GitHub repo
+- Build: `pip install -r ml_model/requirements.txt`
+- Start: `uvicorn ml_model.server:app --host 0.0.0.0 --port $PORT`
+- After deploy, copy the service URL
 
 ### Frontend (Next.js) on Vercel
-- Import the GitHub repo into Vercel.
-- Add Environment Variable:
-	- `ML_API_URL` = `https://your-service.onrender.com`
-- Deploy. The client uses the Next.js API proxy at `/api/predict` which forwards to the FastAPI backend.
 
-### Optional: Local Dev Proxy
-No changes needed. The proxy route at `src/app/api/predict/route.ts` forwards to `http://localhost:8000` when `ML_API_URL` is not set.
+- Import the repo
+- Add env var: `ML_API_URL=https://your-service.onrender.com`
+- Deploy
 
-### GitHub: Initialize and Push
+## GitHub: Initialize and Push
+
 ```bash
 git init
 git add .
@@ -82,17 +94,15 @@ git branch -M main
 git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
+
+## Customize Content
+
+- Journey timeline: `src/components/Journey.tsx`
+- Projects/Certifications/Skills/Contact: `src/components/`
+- Chatbot prompts/knowledge: `src/components/MLChatBot.tsx`
+
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js Docs: https://nextjs.org/docs
+- Tailwind CSS: https://tailwindcss.com/docs
+- FastAPI: https://fastapi.tiangolo.com/

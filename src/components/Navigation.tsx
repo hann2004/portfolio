@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, X, Brain, Code2, Database } from 'lucide-react';
+import { Menu, X, Brain, Code2, Database, Cpu, GitBranch, Layers } from 'lucide-react';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -52,6 +52,15 @@ export default function Navigation() {
               </div>
               <div className="p-2 bg-gray-800 rounded-full">
                 <Code2 className="h-4 w-4 text-[#9B8CFF]" />
+              </div>
+              <div className="p-2 bg-gray-800 rounded-full">
+                <Cpu className="h-4 w-4 text-[#22D3EE]" />
+              </div>
+              <div className="p-2 bg-gray-800 rounded-full">
+                <GitBranch className="h-4 w-4 text-[#9B8CFF]" />
+              </div>
+              <div className="p-2 bg-gray-800 rounded-full">
+                <Layers className="h-4 w-4 text-[#22D3EE]" />
               </div>
             </div>
           </div>
