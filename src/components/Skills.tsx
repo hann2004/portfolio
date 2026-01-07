@@ -6,6 +6,7 @@ import {
   Terminal, Cpu, BarChart3, Sparkles
 } from 'lucide-react';
 import Image from 'next/image';
+import { motion, animate } from 'framer-motion';
 
 // Real Skills Data with LOGO URLs
 const orbitSkills = [
@@ -182,6 +183,107 @@ export default function Skills() {
     return filteredSkills.slice(startIndex, endIndex);
   };
 
+  const Counter = ({ value, duration = 1 }: { value: number; duration?: number }) => {
+    const [display, setDisplay] = useState(0);
+    useEffect(() => {
+      const controls = animate(0, value, {
+        duration,
+        ease: 'easeOut',
+        onUpdate: (v) => setDisplay(Math.round(v)),
+      });
+      return () => controls.stop();
+    }, [value, duration]);
+    return <span>{display}</span>;
+  };
+
+  const LinearSkill = ({ skill }: { skill: typeof orbitSkills[number] }) => (
+    <div className="group">
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
+            {imageErrors[skill.name] ? (
+              <span className={`text-lg font-bold ${skill.color}`}>{skill.name.slice(0, 2)}</span>
+            ) : (
+              <div className="relative w-8 h-8">
+                <Image src={skill.logo} alt={`${skill.name} logo`} fill className="object-contain" onError={() => handleImageError(skill.name)} />
+              </div>
+            )}
+          </div>
+          <div>
+            <div className="font-medium text-gray-300">{skill.name}</div>
+            <div className="text-xs text-gray-500">{skill.description}</div>
+          </div>
+        </div>
+        <div className="px-2 py-0.5 rounded-md bg-white/5 border border-gray-700 text-xs font-semibold text-gray-200 backdrop-blur">
+          <Counter value={skill.level} />%
+        </div>
+      </div>
+      <div className="relative h-2.5 bg-gray-900/60 rounded-full overflow-hidden border border-gray-800">
+        <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)', backgroundSize: '10px 100%' }} />
+        <motion.div
+          className="relative h-full rounded-full bg-gradient-to-r from-[#9B8CFF] via-[#8FA2FF] to-[#22D3EE] shadow-[0_0_12px_2px_rgba(34,211,238,0.25)]"
+          initial={{ width: 0 }}
+          whileInView={{ width: `${Math.max(skill.level, 4)}%` }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+        >
+          <div className="absolute inset-0 overflow-hidden rounded-full">
+            <div className="absolute -inset-y-1 -left-10 w-10 bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-12 animate-shimmer" />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+
+  const GaugeSkill = ({ skill }: { skill: typeof orbitSkills[number] }) => {
+    const size = 60;
+    const stroke = 8;
+    const r = (size - stroke) / 2;
+    const c = 2 * Math.PI * r;
+    const offset = c * (1 - Math.max(skill.level, 4) / 100);
+    const gradId = `grad-${skill.name.replace(/\W+/g, '')}`;
+
+    return (
+      <div className="group flex items-center justify-between mb-4">
+        <div className="flex items-center gap-3">
+          <div className="relative" style={{ width: size, height: size }}>
+            <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+              <defs>
+                <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#9B8CFF" />
+                  <stop offset="100%" stopColor="#22D3EE" />
+                </linearGradient>
+              </defs>
+              <circle cx={size / 2} cy={size / 2} r={r} stroke="#1f2937" strokeWidth={stroke} fill="none" />
+              <motion.circle
+                cx={size / 2}
+                cy={size / 2}
+                r={r}
+                stroke={`url(#${gradId})`}
+                strokeWidth={stroke}
+                strokeLinecap="round"
+                fill="none"
+                strokeDasharray={c}
+                strokeDashoffset={c}
+                transform={`rotate(-90 ${size / 2} ${size / 2})`}
+                whileInView={{ strokeDashoffset: offset }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{ duration: 1, ease: 'easeOut' }}
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-gray-200">
+              <Counter value={skill.level} />%
+            </div>
+          </div>
+          <div>
+            <div className="font-medium text-gray-300">{skill.name}</div>
+            <div className="text-xs text-gray-500">{skill.description}</div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <section id="skills" className="py-20 px-6 relative overflow-hidden">
       {/* Animated Background */}
@@ -272,13 +374,22 @@ export default function Skills() {
                   height: `${orbitSize}px`,
                 }}
               >
-                {/* Orbit Ring */}
+                {/* Orbit Ring + comet */}
                 <div 
                   className="absolute inset-0 border border-gray-800/50 rounded-full"
                   style={{
                     animation: isAnimating ? `spin ${25 + orbitIndex * 8}s linear infinite ${orbitIndex * 3}s` : 'none',
+                    boxShadow: '0 0 20px rgba(155,140,255,0.08) inset',
                   }}
                 />
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    animation: isAnimating ? `spin ${18 + orbitIndex * 7}s linear infinite ${orbitIndex * 2}s` : 'none',
+                  }}
+                >
+                  <div className="absolute left-1/2 -translate-x-1/2 top-0 w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_2px_rgba(34,211,238,0.45)]" />
+                </div>
                 
                 {/* Skills on Orbit */}
                 {orbitSkills.map((skill, skillIndex) => {
@@ -359,47 +470,11 @@ export default function Skills() {
                     </div>
                   </div>
                   
-                  {/* Skills with Progress Bars */}
+                  {/* Skills with Progress Bars / Gauges */}
                   <div className="space-y-5">
                     {categorySkills.map((skill) => (
-                      <div key={skill.name} className="group">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center space-x-3">
-                            {/* Skill Logo */}
-                            <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
-                              {imageErrors[skill.name] ? (
-                                <span className={`text-lg font-bold ${skill.color}`}>
-                                  {skill.name.slice(0, 2)}
-                                </span>
-                              ) : (
-                                <div className="relative w-8 h-8">
-                                  <Image
-                                    src={skill.logo}
-                                    alt={`${skill.name} logo`}
-                                    fill
-                                    className="object-contain"
-                                    onError={() => handleImageError(skill.name)}
-                                  />
-                                </div>
-                              )}
-                            </div>
-                            <div>
-                              <div className="font-medium text-gray-300">{skill.name}</div>
-                              <div className="text-xs text-gray-500">{skill.description}</div>
-                            </div>
-                          </div>
-                          <div className={`font-bold ${skill.color}`}>
-                            {skill.level}%
-                          </div>
-                        </div>
-                        
-                        {/* Progress Bar */}
-                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-[#9B8CFF] to-[#22D3EE] rounded-full transition-all duration-700 ease-out"
-                            style={{ width: `${Math.max(skill.level, 4)}%` }}
-                          />
-                        </div>
+                      <div key={skill.name}>
+                        {category.id === 'tools' ? <GaugeSkill skill={skill} /> : <LinearSkill skill={skill} />}
                       </div>
                     ))}
                   </div>
@@ -425,6 +500,11 @@ export default function Skills() {
         @keyframes pulse {
           0%, 100% { opacity: 0.2; transform: scale(1); }
           50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        @keyframes shimmer {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(120%); }
         }
       `}</style>
     </section>
