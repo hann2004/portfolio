@@ -1,4 +1,4 @@
-## Portfolio 
+## Portfolio
 
 A modern portfolio built with Next.js, Tailwind CSS, and a lightweight ML chatbot. 
 
