@@ -18,6 +18,8 @@ const knowledgeBase = {
     name: "Hanan Nasir",
     title: "Data Science & ML Trainee",
     email: "hanan.nasir1209@gmail.com",
+    linkedin: "https://www.linkedin.com/in/hanan-nasir/",
+    pronouns: "she/her",
     bio: "I'm a KAIM trainee focused on backend development, data analysis, and machine learning. I learn by building real projects and solving problems step by step.",
     location: "Available for remote opportunities",
     status: "Actively seeking ML engineer and data science roles",
@@ -82,6 +84,14 @@ const knowledgeBase = {
       mlConcepts: ["EDA", "Data Visualization", "Statistical Analysis"]
     }
   ],
+  dataScienceProjects: [
+    {
+      name: "Ethiopia Financial Inclusion — Event Impacts, Forecasts, and Dashboard",
+      description: "Data enrichment, event impact modeling, and 2025–2027 forecasts with a Streamlit dashboard",
+      tech: ["Python", "Pandas", "Streamlit", "Forecasting"],
+      github: "https://github.com/hann2004/ethiopia-fi-forecast.git"
+    }
+  ],
   backendProjects: [
     {
       name: "Empower Library API",
@@ -89,6 +99,22 @@ const knowledgeBase = {
       features: ["JWT Authentication", "CRUD Operations", "Swagger UI"],
       tech: ["FastAPI", "PostgreSQL", "SQLAlchemy", "Pydantic", "JWT"],
       github: "https://github.com/hann2004/empower_library_api.git"
+    },
+    {
+      name: "Med Tracker (Arba Minch)",
+      description: "Medicine search, inventory management, and admin analytics with live charts",
+      features: ["Role-based dashboards", "Inventory tracking", "Search analytics"],
+      tech: ["PHP", "MySQL", "Chart.js"],
+      github: "https://github.com/hann2004/med-tracker.git",
+      live: "https://med-tracker.free.nf/"
+    }
+  ],
+  frontendProjects: [
+    {
+      name: "Library Frontend Interface",
+      description: "Responsive frontend for the Empower Library system",
+      tech: ["React", "JavaScript", "CSS"],
+      github: "https://github.com/hann2004/library-frontend.git"
     }
   ],
   certifications: [
@@ -155,7 +181,9 @@ const classifyIntent = (question: string): string => {
   
   const intentPatterns = {
     greeting: ['hi', 'hello', 'hey', 'greetings'],
+    about: ['about', 'who is', 'who’s', 'who is hanan', 'tell me about', 'profile'],
     skills: ['skill', 'tech', 'technology', 'stack', 'what can you do', 'programming'],
+    tools: ['tools', 'tooling', 'software', 'workflow', 'stack tools'],
     projects: ['project', 'work', 'built', 'created', 'developed', 'github'],
     ml: ['machine learning', 'ml', 'ai', 'model', 'algorithm', 'neural', 'deep learning'],
     data: ['data', 'analysis', 'pandas', 'numpy', 'visualization', 'eda'],
@@ -194,24 +222,40 @@ const generateMLResponse = (question: string, history: string[]): string => {
 
   switch(intent) {
     case 'greeting':
-      return `👋 Hello! I'm Hanan's ML Portfolio Assistant. I can discuss machine learning projects, algorithms, and data science techniques.`;
-      
+      return `Hi! I’m Hanan’s portfolio assistant. She’s a data science and ML trainee. Ask me about her projects, skills, or CV.`;
+
+    case 'about':
+      return `About Hanan:\n- Name: ${knowledgeBase.personal.name}\n- Role: ${knowledgeBase.personal.title}\n- Pronouns: ${knowledgeBase.personal.pronouns}\n- Bio: ${knowledgeBase.personal.bio}\n- Status: ${knowledgeBase.personal.status}`;
+
     case 'ml':
-      return `🤖 **Machine Learning Expertise**:\n\n• Frameworks: ${knowledgeBase.technicalStack.ml.frameworks.join(', ')}\n• Algorithms: ${knowledgeBase.technicalStack.ml.algorithms.join(', ')}\n• Specialties: ${knowledgeBase.technicalStack.ml.specialties.join(', ')}\n\n**Projects**:\n${knowledgeBase.mlProjects.map(p => `• ${p.name}: ${p.description}`).join('\n')}`;
+      return `Machine Learning:\n- Frameworks: ${knowledgeBase.technicalStack.ml.frameworks.join(', ')}\n- Algorithms: ${knowledgeBase.technicalStack.ml.algorithms.join(', ')}\n- Specialties: ${knowledgeBase.technicalStack.ml.specialties.join(', ')}\n\nProjects:\n${knowledgeBase.mlProjects.map(p => `- ${p.name}: ${p.description}`).join('\n')}`;
       
+    case 'data':
+      return `Data Science:\n- Libraries: ${knowledgeBase.technicalStack.dataScience.libraries.join(', ')}\n- Techniques: ${knowledgeBase.technicalStack.dataScience.techniques.join(', ')}\n\nRecent:\n${knowledgeBase.dataScienceProjects.map(p => `- ${p.name}: ${p.description} (${p.github})`).join('\n')}`;
+
+    case 'backend':
+      return `Backend Projects:\n${knowledgeBase.backendProjects.map(p => `- ${p.name}: ${p.description}${p.live ? ` (Live: ${p.live})` : ''} (${p.github})`).join('\n')}`;
+
     case 'projects':
-      return `🚀 **ML Projects**:\n\n${knowledgeBase.mlProjects.map(p => 
-        `**${p.name}**\n${p.description}\nApproach: ${p.approach}\nMetrics: ${p.metrics}\nTech: ${p.tech.join(', ')}`
-      ).join('\n\n---\n\n')}`;
+      return `Recent Projects:\n\nData Science:\n${knowledgeBase.dataScienceProjects.map(p => `- ${p.name} — ${p.description} (${p.github})`).join('\n')}\n\nMachine Learning:\n${knowledgeBase.mlProjects.map(p => `- ${p.name} — ${p.description} (${p.github})`).join('\n')}\n\nBackend:\n${knowledgeBase.backendProjects.map(p => `- ${p.name} — ${p.description}${p.live ? ` (Live: ${p.live})` : ''} (${p.github})`).join('\n')}\n\nFrontend:\n${knowledgeBase.frontendProjects.map(p => `- ${p.name} — ${p.description} (${p.github})`).join('\n')}`;
       
     case 'skills':
-      return `💻 **Technical Stack**:\n\n🤖 **Machine Learning**:\n${knowledgeBase.technicalStack.ml.frameworks.join(', ')}\n\n📊 **Data Science**:\n${knowledgeBase.technicalStack.dataScience.libraries.join(', ')}\n\n⚙️ **Backend**:\n${knowledgeBase.technicalStack.backend.frameworks.join(', ')}`;
-      
-    case 'cv':
-      return `📄 **CV Download**:\n\n🔗 Direct: ${knowledgeBase.personal.cv.directDownload}\n👁️ Preview: ${knowledgeBase.personal.cv.viewOnline}\n\nIncludes ML project details, algorithm implementations, and GitHub links.`;
-      
+      return `Hanan’s Stack:\n- ML: ${knowledgeBase.technicalStack.ml.frameworks.join(', ')}\n- Data: ${knowledgeBase.technicalStack.dataScience.libraries.join(', ')}\n- Backend: ${knowledgeBase.technicalStack.backend.frameworks.join(', ')}\n- Tools: ${knowledgeBase.technicalStack.deployment.tools.join(', ')}`;
+
+    case 'tools':
+      return `Tools and Workflow:\n- Data: ${knowledgeBase.technicalStack.dataScience.tools.join(', ')}\n- Deployment: ${knowledgeBase.technicalStack.deployment.tools.join(', ')}\n- Practices: ${knowledgeBase.technicalStack.deployment.practices.join(', ')}`;
+
+    case 'contact':
+      return `Contact:\n- Email: ${knowledgeBase.personal.email}\n- LinkedIn: ${knowledgeBase.personal.linkedin}\n- Status: ${knowledgeBase.personal.status}\n- Location: ${knowledgeBase.personal.location}`;
+
+    case 'experience':
+      return `Background:\n${knowledgeBase.personal.bio}\nStatus: ${knowledgeBase.personal.status}`;
+
+    case 'certifications':
+      return `Certifications:\n${knowledgeBase.certifications.map(c => `- ${c.name} (${c.issuer})`).join('\n')}`;
+
     default:
-      return `I'm an ML-focused assistant! Ask me about:\n• Machine learning algorithms I've implemented\n• Data preprocessing techniques\n• Model evaluation metrics\n• Backend-ML integration\n• Download my ML-focused CV`;
+      return `I can help with Hanan’s projects, skills, and CV.\nQuick info:\n- ${knowledgeBase.personal.title}\n- Email: ${knowledgeBase.personal.email}\nTry:\n- Show recent projects\n- Tell me about Hanan\n- Download CV`;
   }
 };
 
@@ -247,7 +291,7 @@ export default function MLChatBot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "🤖 **ML Portfolio Assistant Activated**\n\nPowered by cosine similarity & intent classification!\n\nTry: 'Explain ML projects' or 'Download ML CV'",
+      text: "Hi! I’m Hanan’s portfolio assistant. I can share her projects, tech stack, and CV. What would you like to know?",
       sender: 'bot',
       timestamp: new Date(),
       intent: 'greeting',
@@ -288,7 +332,7 @@ export default function MLChatBot() {
     // Add message about CV download
     const cvMessage: Message = {
       id: messages.length + 1,
-      text: `📄 **CV Download Started**\n\nFile: ${knowledgeBase.personal.cv.filename}\nShould download shortly!\n\nYou can also view it: ${knowledgeBase.personal.cv.viewOnline}`,
+      text: `CV download started.\nFile: ${knowledgeBase.personal.cv.filename}\nYou can also view it here: ${knowledgeBase.personal.cv.viewOnline}`,
       sender: 'bot',
       timestamp: new Date(),
       intent: 'cv',
@@ -367,7 +411,7 @@ export default function MLChatBot() {
     setMessages([
       {
         id: 1,
-        text: "🤖 **ML Portfolio Assistant Reactivated**\n\nReady to discuss machine learning and data science!",
+        text: "Chat reset. Ask me about Hanan’s projects, skills, or CV.",
         sender: 'bot',
         timestamp: new Date(),
         intent: 'greeting',
@@ -380,11 +424,11 @@ export default function MLChatBot() {
 
   // ML-focused sample questions
   const mlSampleQuestions = [
-    "Explain your ML projects",
-    "What algorithms do you know?",
-    "Download ML CV",
-    "Data preprocessing",
-    "Backend + ML"
+    "Show recent projects",
+    "Tell me about Med Tracker",
+    "Explain the Ethiopia FI dashboard",
+    "What tools does she use?",
+    "Download CV"
   ];
 
   return (
@@ -427,8 +471,8 @@ export default function MLChatBot() {
                     <Cpu className="h-4 w-4 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm">ML Assistant</h3>
-                    <p className="text-xs text-gray-400">Ask about ML projects</p>
+                    <h3 className="font-bold text-sm">Hanan’s Portfolio Assistant</h3>
+                    <p className="text-xs text-gray-400">Projects, skills, and CV</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-1">
@@ -553,7 +597,7 @@ export default function MLChatBot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask about ML..."
+                  placeholder="Ask about Hanan’s work..."
                   className="flex-grow px-3 py-2.5 bg-[#0B0F17] border border-gray-700 rounded-xl focus:outline-none focus:border-[#9B8CFF] text-sm"
                 />
                 <button
