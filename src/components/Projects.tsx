@@ -42,6 +42,24 @@ const projectSections = {
           'Customer insight generation',
           'Visualization of sentiment trends'
         ],
+      },
+      {
+        id: 8,
+        title: 'Ethiopia Financial Inclusion — Event Impacts, Forecasts, and Dashboard',
+        description: 'Reproducible workflow to enrich data, analyze event impacts, generate 2025–2027 forecasts, and deliver a Streamlit dashboard.',
+        longDescription: 'End-to-end pipeline for data enrichment, EDA, event impact modeling, and forecasting, culminating in an interactive Streamlit dashboard with downloads and scenario analysis.',
+        technologies: ['Python', 'Pandas', 'Streamlit', 'Forecasting', 'EDA', 'Data Visualization'],
+        githubUrl: 'https://github.com/hann2004/ethiopia-fi-forecast.git',
+        image: '/dashboard.gif',
+        imageAlt: 'Ethiopia Financial Inclusion Dashboard Preview',
+        category: 'datascience',
+        features: [
+          'Event–indicator impact modeling with lagged effects',
+          'Forecasting scenarios (pessimistic/base/optimistic) for 2025–2027',
+          'Interactive dashboard with trends and downloads',
+          'Association matrix generation and validation artifacts',
+          'Reproducible notebooks and reports'
+        ],
       }
     ]
   },
@@ -125,6 +143,25 @@ const projectSections = {
         ],
         image: '/library.png',
         imageAlt: 'FastAPI Library Swagger Documentation',
+      },
+      {
+        id: 9,
+        title: 'Med Tracker (Arba Minch)',
+        description: 'PHP/MySQL app for medicine search, inventory management, and admin analytics with live charts.',
+        longDescription: 'Role-based dashboards for admin, pharmacy, and users with real-time analytics, inventory tracking, and medicine search. Live demo: https://med-tracker.free.nf/',
+        technologies: ['PHP', 'MySQL', 'Chart.js', 'Font Awesome', 'Apache', 'XAMPP'],
+        githubUrl: 'https://github.com/hann2004/med-tracker.git',
+        liveUrl: 'https://med-tracker.free.nf/',
+        image: '/MedTracker.png',
+        imageAlt: 'Med Tracker Dashboard Preview',
+        category: 'backend',
+        features: [
+          'Medicine search with location and availability',
+          'Pharmacy inventory with pricing, expiry, and low-stock indicators',
+          'Admin analytics with live charts and system overview',
+          'Role-based dashboards and verification flow',
+          'Stored procedures, views, and triggers for analytics'
+        ],
       }
     ]
   },
@@ -230,112 +267,125 @@ export default function Projects() {
 
         {/* Projects Grid for Selected Section */}
         <div className="grid md:grid-cols-2 gap-8">
-          {currentProjects.map((project: any) => (
-            <div
-              key={project.id}
-              className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden hover:border-gray-700 transition-all duration-300 hover:scale-[1.02]"
-            >
-              {/* Project Image Preview (Smaller) */}
-              {project.image && (
-                <div className="h-48 overflow-hidden border-b border-gray-800">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt || project.title}
-                      fill
-                      className="object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
-                  </div>
-                </div>
-              )}
-
-              {/* Project Header with Icon */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className={`p-3 rounded-lg ${
-                      project.category === 'ml' ? 'bg-[#0F1628]/80' :
-                      project.category === 'datascience' ? 'bg-[#0F1628]/80' :
-                      project.category === 'backend' ? 'bg-[#0F1628]/80' : 'bg-[#0F1628]/80'
-                    }`}>
-                      {project.category === 'ml' ? <Brain className="h-6 w-6 text-[#9B8CFF]" /> :
-                       project.category === 'datascience' ? <FileText className="h-6 w-6 text-[#22D3EE]" /> :
-                       project.category === 'backend' ? <Database className="h-6 w-6 text-[#9B8CFF]" /> :
-                       <Code className="h-6 w-6 text-[#22D3EE]" />}
+          {currentProjects.map((project: any) => {
+            const imageSrc = project.image?.replace(/^\/?public\//, '/');
+            return (
+              <div
+                key={project.id}
+                className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden hover:border-gray-700 transition-all duration-300 hover:scale-[1.02] flex flex-col"
+              >
+                {/* Project Image Preview (Smaller) */}
+                {imageSrc && (
+                  <div className="h-48 overflow-hidden border-b border-gray-800">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={imageSrc}
+                        alt={project.imageAlt || project.title}
+                        fill
+                        className="object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-1 group-hover:text-[#9B8CFF] transition-colors">
-                        {project.title}
-                      </h3>
-                      <div className="text-sm text-gray-500 uppercase tracking-wider">
-                        {project.category} Project
+                  </div>
+                )}
+
+                {/* Project Header with Icon */}
+                <div className="p-6 flex flex-col h-full flex-1">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className={`p-3 rounded-lg ${
+                          project.category === 'ml' ? 'bg-[#0F1628]/80' :
+                          project.category === 'datascience' ? 'bg-[#0F1628]/80' :
+                          project.category === 'backend' ? 'bg-[#0F1628]/80' : 'bg-[#0F1628]/80'
+                        }`}>
+                          {project.category === 'ml' ? <Brain className="h-6 w-6 text-[#9B8CFF]" /> :
+                           project.category === 'datascience' ? <FileText className="h-6 w-6 text-[#22D3EE]" /> :
+                           project.category === 'backend' ? <Database className="h-6 w-6 text-[#9B8CFF]" /> :
+                           <Code className="h-6 w-6 text-[#22D3EE]" />}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-1 group-hover:text-[#9B8CFF] transition-colors">
+                          {project.title}
+                        </h3>
+                        <div className="text-sm text-gray-500 uppercase tracking-wider">
+                          {project.category} Project
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <p className="text-gray-400 mb-6">
-                  {project.description}
-                </p>
+                  <p className="text-gray-400 mb-6">
+                    {project.description}
+                  </p>
 
-                {/* Technologies - Cleaner Display */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.slice(0, 5).map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1.5 bg-gray-800 text-gray-300 rounded-lg text-xs font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 5 && (
-                    <span className="px-3 py-1.5 bg-gray-800 text-gray-500 rounded-lg text-xs">
-                      +{project.technologies.length - 5}
-                    </span>
-                  )}
-                </div>
-
-                {/* Project Features */}
-                <div>
-                  <h4 className="font-bold text-gray-300 mb-4">Key Features:</h4>
-                  <ul className="space-y-3 mb-6">
-                    {project.features.slice(0, 3).map((feature: string, idx: number) => (
-                      <li key={idx} className="text-sm text-gray-400 flex items-start">
-                        <span className="text-[#22D3EE] mr-3 mt-1 flex-shrink-0">•</span>
-                        <span>{feature}</span>
-                      </li>
+                  {/* Technologies - Cleaner Display */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.slice(0, 5).map((tech: string) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 bg-gray-800 text-gray-300 rounded-lg text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
                     ))}
-                    {project.features.length > 3 && (
-                      <li className="text-sm text-gray-500">
-                        +{project.features.length - 3} more features
-                      </li>
+                    {project.technologies.length > 5 && (
+                      <span className="px-3 py-1.5 bg-gray-800 text-gray-500 rounded-lg text-xs">
+                        +{project.technologies.length - 5}
+                      </span>
                     )}
-                  </ul>
+                  </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      View Source Code
-                    </a>
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="px-4 py-3 border border-gray-700 text-gray-400 rounded-lg hover:border-gray-600 hover:text-white transition-colors text-sm font-medium"
-                    >
-                      View Details
-                    </button>
+                  {/* Project Features */}
+                  <div className="flex flex-col flex-1">
+                    <h4 className="font-bold text-gray-300 mb-4">Key Features:</h4>
+                    <ul className="space-y-3 mb-6">
+                      {project.features.slice(0, 3).map((feature: string, idx: number) => (
+                        <li key={idx} className="text-sm text-gray-400 flex items-start">
+                          <span className="text-[#22D3EE] mr-3 mt-1 flex-shrink-0">•</span>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                      {project.features.length > 3 && (
+                        <li className="text-sm text-gray-500">
+                          +{project.features.length - 3} more features
+                        </li>
+                      )}
+                    </ul>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 mt-auto">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center px-4 py-3 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+                      >
+                        <Github className="h-4 w-4 mr-2" />
+                        View Source Code
+                      </a>
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-3 border border-gray-700 text-gray-300 rounded-lg hover:border-gray-600 hover:text-white transition-colors text-sm font-medium"
+                        >
+                          Live Demo
+                        </a>
+                      )}
+                      <button
+                        onClick={() => setSelectedProject(project)}
+                        className="px-4 py-3 border border-gray-700 text-gray-400 rounded-lg hover:border-gray-600 hover:text-white transition-colors text-sm font-medium"
+                      >
+                        View Details
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Project Details Modal */}
