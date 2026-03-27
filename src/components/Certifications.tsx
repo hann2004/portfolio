@@ -5,6 +5,20 @@ import { ExternalLink, CheckCircle } from 'lucide-react';
 
 const certifications = [
   {
+    title: 'KAIM Graduation Certificate',
+    issuer: 'KAIM',
+    date: 'March 2026',
+    verifyUrl: 'https://drive.google.com/file/d/1gRwTH8SPRQTkwBmgKLn6_OoxzD7wFZFE/view?usp=sharing',
+      logo: '/10_acad_logo.jpeg', // Local 10 Academy logo
+    skills: ['Graduation', 'KAIM Program'],
+    extraLinks: [
+      {
+        label: 'Course Details',
+        url: 'https://drive.google.com/file/d/1sEczj63QUGHMED-mlerOEDUNzf9cRPAg/view?usp=sharing',
+      },
+    ],
+  },
+  {
     title: 'Artificial Intelligence Fundamentals',
     issuer: 'Udacity',
     date: 'December 17, 2024',
@@ -118,17 +132,35 @@ export default function Certifications() {
               </div>
 
               {/* Verification */}
-              <div className="flex items-center justify-between pt-6 border-t border-gray-800">
-                <span className="text-sm text-gray-500">Verification Status</span>
-                <a
-                  href={cert.verifyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors text-sm"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Verify Online
-                </a>
+              <div className="flex flex-col gap-2 pt-6 border-t border-gray-800">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500">Verification Status</span>
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors text-sm"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Verify Online
+                  </a>
+                </div>
+                {cert.extraLinks && cert.extraLinks.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {cert.extraLinks.map((link, i) => (
+                      <a
+                        key={i}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-3 py-1 bg-gray-700 text-gray-200 rounded-lg hover:bg-gray-600 transition-colors text-xs"
+                      >
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
