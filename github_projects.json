@@ -1,0 +1,155 @@
+[
+  {
+    "name": "bank_Mangment",
+    "description": "a system for bank management system",
+    "html_url": "https://github.com/hann2004/bank_Mangment",
+    "topics": []
+  },
+  {
+    "name": "brent-oil-event-analysis",
+    "description": "A full-stack data science project for Brent crude oil prices, combining Bayesian change point detection, event impact analysis, and a modern dashboard for stakeholders.",
+    "html_url": "https://github.com/hann2004/brent-oil-event-analysis",
+    "topics": []
+  },
+  {
+    "name": "credit-risk-model",
+    "description": "In this project, we aim to build a credit risk probability model for Bati Bank in partnership with an eCommerce platform, enabling a buy-now-pay-later service.",
+    "html_url": "https://github.com/hann2004/credit-risk-model",
+    "topics": []
+  },
+  {
+    "name": "DSA_doubly_linked_list_group4",
+    "description": null,
+    "html_url": "https://github.com/hann2004/DSA_doubly_linked_list_group4",
+    "topics": []
+  },
+  {
+    "name": "email-automation",
+    "description": null,
+    "html_url": "https://github.com/hann2004/email-automation",
+    "topics": []
+  },
+  {
+    "name": "empower_library_api",
+    "description": null,
+    "html_url": "https://github.com/hann2004/empower_library_api",
+    "topics": []
+  },
+  {
+    "name": "ethiopia-fi-forecast",
+    "description": "Forecasting Financial Inclusion in Ethiopia Build a forecasting system that tracks Ethiopia's digital financial transformation using time series methods.",
+    "html_url": "https://github.com/hann2004/ethiopia-fi-forecast",
+    "topics": []
+  },
+  {
+    "name": "fraud-detection",
+    "description": "Repository for e-commerce and credit card fraud detection. Data cleaning, EDA, feature engineering, scaling/encoding, and imbalance handling.  Model building, training, and evaluation with stratified CV; baseline Logistic Regression vs. Ensemble (XGBoost/RandomForest); metrics saved and models persisted.",
+    "html_url": "https://github.com/hann2004/fraud-detection",
+    "topics": []
+  },
+  {
+    "name": "hann2004",
+    "description": "Config files for my GitHub profile.",
+    "html_url": "https://github.com/hann2004/hann2004",
+    "topics": [
+      "config",
+      "github-config"
+    ]
+  },
+  {
+    "name": "JavaDiaryApp",
+    "description": null,
+    "html_url": "https://github.com/hann2004/JavaDiaryApp",
+    "topics": []
+  },
+  {
+    "name": "kaim-week1-news-sentiment",
+    "description": "Financial news sentiment analysis for stock prediction - KAIM Week 1 Challenge",
+    "html_url": "https://github.com/hann2004/kaim-week1-news-sentiment",
+    "topics": []
+  },
+  {
+    "name": "Kaim-week2-fintech-reviews",
+    "description": null,
+    "html_url": "https://github.com/hann2004/Kaim-week2-fintech-reviews",
+    "topics": []
+  },
+  {
+    "name": "kaim-week3-insurance-risk-analytics-acis",
+    "description": "End-to-End Insurance Risk Analytics & Predictive Modeling for AlphaCare Insurance Solutions",
+    "html_url": "https://github.com/hann2004/kaim-week3-insurance-risk-analytics-acis",
+    "topics": []
+  },
+  {
+    "name": "library-frontend",
+    "description": null,
+    "html_url": "https://github.com/hann2004/library-frontend",
+    "topics": []
+  },
+  {
+    "name": "med-tracker",
+    "description": "Med Tracker is a PHP/MySQL web app for managing medications and users, with role-based dashboards (admin, pharmacy, patient), secure authentication, and session-based access control. It lets you track prescriptions, organize pharmacy inventory, and provide users with a personalized view of their meds, all running on a simple LAMP stack setup.",
+    "html_url": "https://github.com/hann2004/med-tracker",
+    "topics": []
+  },
+  {
+    "name": "medical-telegram-warehouse",
+    "description": "This project builds a robust, production-ready data pipeline for collecting, storing, and analyzing medical-related Telegram messages. It is designed for reliability, scalability, and ease of use, following a strict multi-step challenge specification.",
+    "html_url": "https://github.com/hann2004/medical-telegram-warehouse",
+    "topics": []
+  },
+  {
+    "name": "My-website",
+    "description": null,
+    "html_url": "https://github.com/hann2004/My-website",
+    "topics": []
+  },
+  {
+    "name": "My-website.github.io",
+    "description": null,
+    "html_url": "https://github.com/hann2004/My-website.github.io",
+    "topics": []
+  },
+  {
+    "name": "My_quiz_App",
+    "description": "This is a simple quiz app",
+    "html_url": "https://github.com/hann2004/My_quiz_App",
+    "topics": []
+  },
+  {
+    "name": "my_virtual_assistance_portfolio",
+    "description": "it is myportfolio",
+    "html_url": "https://github.com/hann2004/my_virtual_assistance_portfolio",
+    "topics": []
+  },
+  {
+    "name": "portfolio",
+    "description": "A modern portfolio built with Next.js, Tailwind CSS, and a lightweight ML chatbot.",
+    "html_url": "https://github.com/hann2004/portfolio",
+    "topics": []
+  },
+  {
+    "name": "portfolio-optimization",
+    "description": "This project implements a comprehensive portfolio optimization system for GMF Investments, combining time series forecasting with Modern Portfolio Theory to enhance investment decision-making. The system analyzes three key assets (TSLA, BND, SPY) to provide data-driven portfolio recommendations.",
+    "html_url": "https://github.com/hann2004/portfolio-optimization",
+    "topics": []
+  },
+  {
+    "name": "PracticeGame",
+    "description": null,
+    "html_url": "https://github.com/hann2004/PracticeGame",
+    "topics": []
+  },
+  {
+    "name": "rag-complaint-chatbot",
+    "description": "Internal RAG assistant for CrediTrust complaint analysis. covers EDA/cleaning; chunks, embeds, and indexes narratives for semantic search; builds the retrieval + generation pipeline and evaluation; provides an interactive chat UI.",
+    "html_url": "https://github.com/hann2004/rag-complaint-chatbot",
+    "topics": []
+  },
+  {
+    "name": "solar-challenge-week0",
+    "description": null,
+    "html_url": "https://github.com/hann2004/solar-challenge-week0",
+    "topics": []
+  }
+]

@@ -6,7 +6,7 @@ import Projects from '@/components/Projects';
 import Certifications from '@/components/Certifications';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
-import MLChatBot from '@/components/MLChatBot';
+import RAGChatBot from '@/components/RAGChatBot';
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <Certifications />
       <Skills />
       <Contact />
-      <MLChatBot />
+      <RAGChatBot />
     </div>
   );
 }
